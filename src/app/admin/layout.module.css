@@ -1,0 +1,24 @@
+.adminRoot {
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "main main main main"
+    "footer footer footer footer";
+  grid-template-rows: min-content 1fr min-content;
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+  height: 64px;
+}
+
+.main {
+  grid-area: main;
+  padding: 8px;
+}
+
+.footer {
+  grid-area: footer;
+  padding: 8px;
+}
