@@ -1,6 +1,14 @@
 "use client";
 
-import { Box, Stack, Tab, Tabs, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  Snackbar,
+  Stack,
+  Tab,
+  Tabs,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import styles from "./layout.module.css";
 import Login from "./components/login";
@@ -17,6 +25,8 @@ export default function AdminLayout({
 }) {
   const user = useAdminStore((state) => state.user);
   const tab = useAdminStore((state) => state.tab);
+  const snackbarProps = useAdminStore((state) => state.snackbarProps);
+  const setSnackbarProps = useAdminStore((state) => state.setSnackbarProps);
   const setTab = useAdminStore((state) => state.setTab);
 
   return (
@@ -55,6 +65,22 @@ export default function AdminLayout({
           </Stack>
         </footer>
       </div>
+      <Snackbar
+        open={snackbarProps.open}
+        autoHideDuration={5000}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        onClose={() =>
+          setSnackbarProps({
+            ...snackbarProps,
+            open: false,
+          })
+        }
+      >
+        <Alert severity={snackbarProps.type}>{snackbarProps.content}</Alert>
+      </Snackbar>
     </QueryClientProvider>
   );
 }

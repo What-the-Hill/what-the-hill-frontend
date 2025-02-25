@@ -15,10 +15,10 @@
 
 .main {
   grid-area: main;
-  padding: 8px;
+  padding: 16px;
 }
 
 .footer {
   grid-area: footer;
-  padding: 8px;
+  padding: 16px;
 }

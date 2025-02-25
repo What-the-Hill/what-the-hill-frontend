@@ -11,6 +11,7 @@ Tools:
 - MUI
 - Zustand
 - TailwindCSS
+- Ky
 
 Ensure the `what-the-hill-api` project is running locally.
 

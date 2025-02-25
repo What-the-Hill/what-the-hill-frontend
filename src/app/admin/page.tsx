@@ -2,12 +2,13 @@
 
 import { Typography } from "@mui/material";
 import { useAdminStore } from "./admin-store";
+import Bills from "./tabs/bills";
 
 export default function Page() {
   const tab = useAdminStore((state) => state.tab);
 
   if (tab === 0) {
-    return <Typography variant="h4">Bills</Typography>;
+    return <Bills />;
   }
 
   if (tab === 1) {
