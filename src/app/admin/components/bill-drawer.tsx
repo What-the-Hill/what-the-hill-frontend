@@ -158,18 +158,25 @@ export default function BillDrawer({ bill, onClose, open }: Props) {
               <form.Field
                 name="ranking"
                 children={({ state, handleChange, name }) => (
-                  <Slider
-                    aria-label="Ranking"
-                    id={name}
-                    defaultValue={state.value}
-                    value={state.value}
-                    valueLabelDisplay="auto"
-                    step={1}
-                    min={-5}
-                    max={5}
-                    onChange={(_, value) => handleChange(value as number)}
-                    marks
-                  />
+                  <Stack>
+                    <Typography>Ranking (⭐)</Typography>
+                    <Slider
+                      aria-label="Ranking"
+                      id={name}
+                      defaultValue={state.value}
+                      value={state.value}
+                      valueLabelDisplay="auto"
+                      step={1}
+                      min={-5}
+                      max={5}
+                      onChange={(_, value) => handleChange(value as number)}
+                      marks={[
+                        { value: 0, label: "0" },
+                        { value: -5, label: "-5" },
+                        { value: 5, label: "5" },
+                      ]}
+                    />
+                  </Stack>
                 )}
               />
               <form.Field
