@@ -21,6 +21,7 @@ import { Status } from "@/interfaces/status";
 import { Stage } from "@/interfaces/stage";
 import { useEffect } from "react";
 import { useAdminStore } from "../admin-store";
+import { User } from "@/interfaces/user";
 
 type Props = {
   bill: Bill | null;
@@ -42,6 +43,10 @@ export default function BillDrawer({ bill, onClose, open }: Props) {
   const { data: stages = [] } = useQuery({
     queryKey: ["stages"],
     queryFn: async () => await api.get<Stage[]>("stages").json(),
+  });
+  const { data: users = [] } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => await api.get<User[]>("users").json(),
   });
   const form = useForm({
     defaultValues: {
@@ -239,6 +244,18 @@ export default function BillDrawer({ bill, onClose, open }: Props) {
               <Button type="submit" variant="contained">
                 Save
               </Button>
+              {bill && (
+                <>
+                  <Typography>
+                    Updated at {new Date(bill.updatedAt).toLocaleString()} by{" "}
+                    {users.find((user) => user.id === bill.updatedBy)?.name ||
+                      bill.updatedBy}
+                  </Typography>
+                  <Typography>
+                    Created at {new Date(bill.createdAt).toLocaleString()}
+                  </Typography>
+                </>
+              )}
             </Stack>
           </form>
         </Stack>

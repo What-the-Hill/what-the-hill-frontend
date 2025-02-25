@@ -6,6 +6,7 @@ export interface Bill {
   id: string;
   createdAt: string;
   updatedAt: string;
+  updatedBy: string;
   detail: string | null;
   links: string[];
   name: string | null;

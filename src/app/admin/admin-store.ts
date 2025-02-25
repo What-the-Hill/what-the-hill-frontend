@@ -1,3 +1,4 @@
+import { User } from "@/interfaces/user";
 import { create } from "zustand";
 
 interface SnackbarProps {
@@ -6,22 +7,17 @@ interface SnackbarProps {
   content: string;
 }
 
-interface User {
-  id: string;
-  createdAt: Date;
-  updatedAt: Date;
-  name: string;
-  email: string;
+interface LoggedInUser extends User {
   accessToken: string;
 }
 
 interface AdminState {
   snackbarProps: SnackbarProps;
   tab: number;
-  user: User | null;
+  user: LoggedInUser | null;
   setSnackbarProps: (snackbarProps: SnackbarProps) => void;
   setTab: (tab: number) => void;
-  setUser: (user: User) => void;
+  setUser: (user: LoggedInUser) => void;
 }
 
 export const useAdminStore = create<AdminState>((set) => ({
@@ -35,5 +31,5 @@ export const useAdminStore = create<AdminState>((set) => ({
   setSnackbarProps: (snackbarProps: SnackbarProps) =>
     set(() => ({ snackbarProps })),
   setTab: (tab: number) => set(() => ({ tab })),
-  setUser: (user: User) => set(() => ({ user })),
+  setUser: (user: LoggedInUser) => set(() => ({ user })),
 }));
