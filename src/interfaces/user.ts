@@ -4,4 +4,5 @@ export interface User {
   updatedAt: Date;
   name: string;
   email: string;
+  updatedBy: string;
 }

@@ -23,3 +23,13 @@ Edit your new `.env` to contain a reference to where your `what-the-hill-api`
 is listening.
 
 `npm run dev`
+
+## Deployment
+
+Set environment variables as secrets
+
+Bump version in `package.json` AND `src/constants.ts`
+
+`npm run build`
+
+`npm run start`

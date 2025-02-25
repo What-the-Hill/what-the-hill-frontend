@@ -3,6 +3,9 @@
 import { Typography } from "@mui/material";
 import { useAdminStore } from "./admin-store";
 import Bills from "./tabs/bills";
+import Legislators from "./tabs/legislators";
+import Stages from "./tabs/stages";
+import Statuses from "./tabs/statuses";
 
 export default function Page() {
   const tab = useAdminStore((state) => state.tab);
@@ -12,15 +15,15 @@ export default function Page() {
   }
 
   if (tab === 1) {
-    return <Typography variant="h4">Legislators</Typography>;
+    return <Legislators />;
   }
 
   if (tab === 2) {
-    return <Typography variant="h4">Stages</Typography>;
+    return <Stages />;
   }
 
   if (tab === 3) {
-    return <Typography variant="h4">Statuses</Typography>;
+    return <Statuses />;
   }
 
   return <Typography variant="h4">How did you get here?</Typography>;
