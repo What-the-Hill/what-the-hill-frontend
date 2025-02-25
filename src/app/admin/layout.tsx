@@ -6,6 +6,7 @@ import styles from "./layout.module.css";
 import Login from "./components/login";
 import { useAdminStore } from "./admin-store";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { VERSION } from "@/constants";
 
 const queryClient = new QueryClient();
 
@@ -48,7 +49,11 @@ export default function AdminLayout({
           </Box>
         </header>
         <main className={styles.main}>{user ? children : undefined}</main>
-        <footer className={styles.footer}></footer>
+        <footer className={styles.footer}>
+          <Stack direction="row" justifyContent="flex-end">
+            <Typography variant="subtitle1">v{VERSION}</Typography>
+          </Stack>
+        </footer>
       </div>
     </QueryClientProvider>
   );
