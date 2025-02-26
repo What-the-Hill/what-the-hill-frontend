@@ -104,6 +104,12 @@ export default function Bills() {
             width: 200,
           },
           {
+            field: "floorSponsor",
+            headerName: "Floor Sponsor",
+            valueGetter: (_, bill) => bill.floorSponsor?.name,
+            width: 200,
+          },
+          {
             field: "stage",
             headerName: "Stage",
             valueGetter: (_, bill) => bill.stage.name,

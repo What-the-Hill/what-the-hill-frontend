@@ -54,6 +54,7 @@ export default function BillDrawer({ bill, onClose, open }: Props) {
       number: bill?.number || "",
       name: bill?.name || undefined,
       ranking: bill?.ranking || 0,
+      floorSponsorId: bill?.floorSponsorId || "",
       sponsorId: bill?.sponsorId || "",
       stageId: bill?.stageId || "",
       statusId: bill?.statusId || "",
@@ -192,6 +193,28 @@ export default function BillDrawer({ bill, onClose, open }: Props) {
                       onChange={(e) => handleChange(e.target.value)}
                       onBlur={handleBlur}
                       required
+                    >
+                      {legislators.map((legislator) => (
+                        <MenuItem key={legislator.id} value={legislator.id}>
+                          {legislator.name}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                )}
+              />
+              <form.Field
+                name="floorSponsorId"
+                children={({ state, handleChange, handleBlur, name }) => (
+                  <FormControl fullWidth required>
+                    <InputLabel id={`${name}-label`}>Floor Sponsor</InputLabel>
+                    <Select
+                      labelId={`${name}-label`}
+                      id={name}
+                      value={state.value}
+                      label="Floor Sponsor"
+                      onChange={(e) => handleChange(e.target.value)}
+                      onBlur={handleBlur}
                     >
                       {legislators.map((legislator) => (
                         <MenuItem key={legislator.id} value={legislator.id}>

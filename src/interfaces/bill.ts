@@ -8,6 +8,8 @@ export interface Bill {
   updatedAt: string;
   updatedBy: string;
   detail: string | null;
+  floorSponsor: Legislator | null;
+  floorSponsorId: string | null;
   links: string[];
   name: string | null;
   number: string;
