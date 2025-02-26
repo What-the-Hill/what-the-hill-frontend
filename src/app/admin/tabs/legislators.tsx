@@ -89,6 +89,18 @@ export default function Legislators() {
             minWidth: 200,
           },
           {
+            field: "bills",
+            headerName: "Sponsored Bills",
+            minWidth: 150,
+            valueGetter: (_, legislator) => legislator.bills.length,
+          },
+          {
+            field: "floorBills",
+            headerName: "Floor Sponsored Bills",
+            minWidth: 175,
+            valueGetter: (_, legislator) => legislator.floorBills.length,
+          },
+          {
             field: "updatedAt",
             headerName: "Updated",
             valueGetter: (_, legislator) =>

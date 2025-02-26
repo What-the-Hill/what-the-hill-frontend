@@ -4,4 +4,6 @@ export interface Legislator {
   createdAt: string;
   updatedAt: string;
   updatedBy: string;
+  bills: { title: string }[];
+  floorBills: { title: string }[];
 }
