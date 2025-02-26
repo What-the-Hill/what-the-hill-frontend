@@ -90,6 +90,12 @@ export default function Statuses() {
             minWidth: 200,
           },
           {
+            field: "_count",
+            headerName: "# of Bills",
+            minWidth: 100,
+            valueGetter: (_, status) => status._count.Bill,
+          },
+          {
             field: "color",
             headerName: "Color",
             width: 100,

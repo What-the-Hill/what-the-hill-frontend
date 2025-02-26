@@ -5,4 +5,5 @@ export interface Status {
   createdAt: string;
   updatedAt: string;
   updatedBy: string;
+  _count: { Bill: number };
 }

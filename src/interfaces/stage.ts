@@ -4,4 +4,5 @@ export interface Stage {
   createdAt: string;
   updatedAt: string;
   updatedBy: string;
+  _count: { Bill: number };
 }

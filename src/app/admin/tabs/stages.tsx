@@ -89,6 +89,12 @@ export default function Stages() {
             minWidth: 200,
           },
           {
+            field: "_count",
+            headerName: "# of Bills",
+            minWidth: 100,
+            valueGetter: (_, stage) => stage._count.Bill,
+          },
+          {
             field: "updatedAt",
             headerName: "Updated",
             valueGetter: (_, stage) =>
